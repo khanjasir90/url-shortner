@@ -35,7 +35,11 @@ router.get('/:id', async(req,res,next) => {
     let shortUrl = req.get('host') + '/' + id;
     const orignalUrl = await getOriginalUrl(shortUrl);
     console.log(orignalUrl);
-    orignalUrl == false ? res.redirect('404') : res.redirect(orignalUrl);
+    orignalUrl == false ? res.redirect('/error/404') : res.redirect(orignalUrl);
+})
+
+router.get('/error/404', (req,res,next) => {
+    res.render('404');
 })
 
 module.exports = router;

@@ -5,7 +5,7 @@ const { connectToMongo } = require('./db');
 
 app.use(express.urlencoded())
 app.use(express.json())
-app.use(express.static('public'));
+app.use('/public/images/', express.static('./public/images'));
 
 app.set('views','./views')
 app.set('view engine','ejs')

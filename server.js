@@ -11,7 +11,6 @@ app.use('/public/images/', express.static('./public/images'));
 app.set('views','./views')
 app.set('view engine','ejs')
 
-connectToMongo();
 app.use(urlRouter);
 
 connectToMongo().then(() => {
